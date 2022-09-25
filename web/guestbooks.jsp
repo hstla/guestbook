@@ -23,6 +23,7 @@
     <div> <label>name : </label> ${guestbook.name}</div>
     <div> <p>${guestbook.content}</p></div>
     <div> <label>regdate : </label> ${guestbook.regdate}</div>
+    <input type="submit" value="삭제">
   </div>
 </c:forEach>
 </div>

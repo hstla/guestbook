@@ -29,9 +29,11 @@ public class GuestbookDao {
           String name = rs.getString("name");
           String content = rs.getString("content");
           Date regdate = rs.getDate("regdate");
-          Guestbook guestbook = new Guestbook(id, name, content, regdate);
+          Guestbook guestbook = new Guestbook(id,name,content,regdate);
           list.add(guestbook);
         }
+      } catch (Exception e){
+        e.printStackTrace();
       }
     } catch (SQLException e) {
       e.printStackTrace();
@@ -52,6 +54,7 @@ public class GuestbookDao {
     {
       ps.setString(1, guestbook.getName());
       ps.setString(2, guestbook.getContent());
+      ps.executeUpdate();
     } catch (Exception e) {
       e.printStackTrace();
     }
