@@ -1,7 +1,9 @@
-package main.java.org.edwith.webbe.guestbook.servlet;
+package org.edwith.webbe.guestbook.servlet;
+
+import org.edwith.webbe.guestbook.dao.GuestbookDao;
+import org.edwith.webbe.guestbook.dto.Guestbook;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -16,7 +18,14 @@ public class GuestbookListServlet extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    request.getRequestDispatcher("guestbooks.jsp").forward(request, response);
+    response.setContentType("text/html; charset = UTF-8;");
+    GuestbookDao guestBookDao = new GuestbookDao();
+    List<Guestbook> list = guestBookDao.getGuestbooks();
+    request.setAttribute("list", list);
+
+    RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/guestbooks.jsp");
+    requestDispatcher.forward(request, response);
+
   }
 
 }

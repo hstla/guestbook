@@ -1,5 +1,6 @@
-package main.java.org.edwith.webbe.guestbook.dao;
-import main.java.org.edwith.webbe.guestbook.dto.Guestbook;
+package org.edwith.webbe.guestbook.dao;
+
+import org.edwith.webbe.guestbook.dto.Guestbook;
 
 import java.sql.*;
 import java.util.ArrayList;
