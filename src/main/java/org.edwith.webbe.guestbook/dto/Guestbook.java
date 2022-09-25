@@ -1,4 +1,4 @@
-package main.java.org.edwith.webbe.guestbook.dto;
+package org.edwith.webbe.guestbook.dto;
 
 import java.util.Date;
 
@@ -24,6 +24,8 @@ public class Guestbook {
   public void setId(Long id) {
     this.id = id;
   }
+
+  public Long getId() {return id;}
 
   public String getName() {
     return name;
