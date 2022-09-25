@@ -1,4 +1,4 @@
-package main.java.org.edwith.webbe.guestbook.util;
+package org.edwith.webbe.guestbook.util;
 
 
 import java.sql.Connection;

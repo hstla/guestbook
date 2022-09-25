@@ -24,5 +24,4 @@ public class GuestbookWriteServlet extends HttpServlet {
 
     response.sendRedirect("/guestbooks");
   }
-
 }

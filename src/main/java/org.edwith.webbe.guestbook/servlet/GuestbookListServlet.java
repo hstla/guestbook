@@ -18,14 +18,12 @@ public class GuestbookListServlet extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    response.setContentType("text/html; charset = UTF-8;");
-    GuestbookDao guestBookDao = new GuestbookDao();
-    List<Guestbook> list = guestBookDao.getGuestbooks();
+//    response.setContentType("text/html; charset = UTF-8;");
+    GuestbookDao dao = new GuestbookDao();
+    List<Guestbook> list = dao.getGuestbooks();
     request.setAttribute("list", list);
 
     RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/guestbooks.jsp");
     requestDispatcher.forward(request, response);
-
   }
-
 }

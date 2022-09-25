@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 public class GuestbookDao {
-  private String dburl = "jdbc:mysql://localhost:3306/connectdb?useSSL=false";
+  private static String dburl = "jdbc:mysql://localhost:3306/connectdb?useUnicode=true&characterEncoding=utf8&useSSL=false";
   private String dbUser = "connectuser";
   private String dbpasswd = "connectuser123!@#";
 
@@ -19,13 +19,12 @@ public class GuestbookDao {
     } catch (ClassNotFoundException e) {
       e.printStackTrace();
     }
-    String sql = "SELECT id FROM guestbook order by id";
+    String sql = "SELECT * FROM guestbook order by regdate";
     try (Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
          PreparedStatement ps = conn.prepareStatement(sql))
     {
       try (ResultSet rs = ps.executeQuery()) {
         while (rs.next()) {
-          String description = rs.getString(1);
           Long id = rs.getLong("id");
           String name = rs.getString("name");
           String content = rs.getString("content");
@@ -46,7 +45,7 @@ public class GuestbookDao {
     } catch (ClassNotFoundException e) {
       e.printStackTrace();
     }
-    String sql = "insert into guestbook (name, content) values (?,?)";
+    String sql = "insert into guestbook (name, content) values (?, ?)";
 
     try (Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
          PreparedStatement ps = conn.prepareStatement(sql))

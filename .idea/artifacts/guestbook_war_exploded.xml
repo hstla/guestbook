@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="guestbook:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/guestbook_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="guestbook" />
+        </element>
+      </element>
+      <element id="library" level="project" name="JAX-WS-Apache Axis" />
+      <element id="javaee-facet-resources" facet="guestbook/web/웹" />
+    </root>
+  </artifact>
+</component>

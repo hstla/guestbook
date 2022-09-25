@@ -18,7 +18,6 @@ public class Guestbook {
   public Guestbook(String name, String content) {
     this.name = name;
     this.content = content;
-    this.regdate = new Date();
   }
 
   public void setId(Long id) {
