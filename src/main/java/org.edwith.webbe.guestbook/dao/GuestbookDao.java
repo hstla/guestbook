@@ -59,4 +59,21 @@ public class GuestbookDao {
       e.printStackTrace();
     }
   }
+
+  public void deleteGuestbook(String id){
+    try{
+      Class.forName("com.mysql.cj.jdbc.Driver");
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+    }
+    String sql = "DELETE from guestbook WHERE id=?";
+
+    try (Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+      ps.setString(1, id);
+      ps.executeUpdate();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
 }

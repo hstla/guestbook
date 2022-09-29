@@ -18,7 +18,7 @@ public class GuestbookListServlet extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//    response.setContentType("text/html; charset = UTF-8;");
+    response.setContentType("text/html; charset = UTF-8;");
     GuestbookDao dao = new GuestbookDao();
     List<Guestbook> list = dao.getGuestbooks();
     request.setAttribute("list", list);

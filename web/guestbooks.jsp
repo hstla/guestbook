@@ -24,8 +24,9 @@
     <div> <p>${guestbook.content}</p></div>
     <div> <label>regdate : </label> ${guestbook.regdate}</div>
 
-    <form action="guestbooks/delete">
-    <input type="submit" value="삭제">
+    <form method="post" action="/guestbooks/delete">
+      <input type="hidden" name="id" value=${guestbook.id}>
+      <input type="submit" value="삭제">
     </form>
   </div>
 </c:forEach>
@@ -33,7 +34,7 @@
 
 <br><br><br>
 
-<form method="post" action="guestbooks/write">
+<form method="post" action="/guestbooks/write">
   이름 : <input type="text" name="name"><br>
   내용 :
   <textarea name="content" cols="50" rows="5"></textarea><br>
